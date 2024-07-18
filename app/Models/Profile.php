@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+
+
+	public function posts ()
+	{
+		return $this->hasMany(Post::class);
+	}
+
+	public function profileable()
+	{
+		return $this->morphTo();
+	}
+
 }

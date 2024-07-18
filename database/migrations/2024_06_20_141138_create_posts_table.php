@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('content')->nullable();
             $table->text('description')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->string('image_path')->nullable();
             $table->string('status')->default(1);
-            $table->integer('author');
-            $table->string('category')->nullable();
+            $table->integer('profile_id')->nullable();
+            $table->integer('category_id')->nullable();
             $table->string('tag')->nullable();
             $table->timestamps();
         });

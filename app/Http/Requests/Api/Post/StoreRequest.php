@@ -17,7 +17,7 @@ class StoreRequest extends FormRequest
 			'published_at' => 'nullable|date_format:Y-m-d',
 			'image_path' => 'nullable|string',
 			'status' => 'nullable|integer',
-			'author' => 'nullable|string',
+			'profile_id' => 'nullable|integer',
 			'category' => 'nullable|string',
 			'tag' => 'nullable|string'
 		];

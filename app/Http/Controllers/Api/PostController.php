@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Post;
 use App\Http\Resources\Post\PostResource;
+use App\Http\Requests\Api\Post\StoreRequest;
+use App\Http\Requests\Api\Post\UpdateRequest;
 
 class PostController extends Controller
 {
@@ -20,7 +23,6 @@ class PostController extends Controller
 	{
 		return PostResource::make($post)->resolve();
 	}
-
 
 	public function store(StoreRequest $request)
 	{
@@ -39,6 +41,7 @@ class PostController extends Controller
 	public function destroy(Post $post)
 	{
 		$post->delete();
-		return response(['message' =>  'result'], Response::HTTP_OK);
+		return response(['message' =>  'deleted'], Response::HTTP_OK);
+		//return Response::HTTP_NO_CONTENT;
 	}
 }

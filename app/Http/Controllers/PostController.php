@@ -61,7 +61,7 @@ class PostController extends Controller
 			'description' => $arTitles1[$randomKeys1].' '.$arTitles2[$randomKeys2].' full description',
 			'image_path' => '/upload/cw2/jhbffjfjbjhdvs.jpg',
 			'status' => '1',
-			'author' => $arAuthors1[$randomAuthor1].' '.$arAuthors2[$randomAuthor2],
+			'profile_id' => 1,
 			'category' => 'PHP',
 			'tag' => 'Develop'
 		];

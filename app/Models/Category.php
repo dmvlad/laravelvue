@@ -10,4 +10,16 @@ class Category extends Model
     use HasFactory;
 
 	protected $guarded = false;
+
+	public function comments()
+	{
+		// с кем отношения и через кого
+		return $this->hasManyThrough(Comment::class, Post::class);
+	}
+
+	public function comment()
+	{
+		return $this->hasOneThrough(Comment::class, Post::class)->latest();
+	}
+
 }
