@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('likeable', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->nullable();
+
+			$table->morphs('likeable');
+
 			$table->foreignId('profile_id')->index()->constrained('profiles');
-
-			$table->morphs('commentable');
-
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('likeable');
     }
 };

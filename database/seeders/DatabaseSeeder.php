@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,11 @@ class DatabaseSeeder extends Seeder
 
 	public function run ()
 	{
+		$this->call([
+			RoleSeeder::class
+		]);
+
+		$role = Role::where('title', 'admin')->first();
 
 		$user = User::firstOrCreate([
 			'email' => 'admin@admin.tk'
@@ -24,6 +30,7 @@ class DatabaseSeeder extends Seeder
 			'name' => 'Admin',
 			'login' => 'admin',
 			'password' => Hash::make(123123123),
+			'role_id' => $role->id
 		]);
 
 		$user->profile()->create();

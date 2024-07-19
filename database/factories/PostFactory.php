@@ -24,7 +24,7 @@ class PostFactory extends Factory
 			'content' => fake()->text(),
 			'description' => fake()->text(50),
 			'published_at' => fake()->date,
-			'image_path' => fake()->imageUrl,
+			'image_path' => fake()->imageUrl(),
 			'status' => 1,
 			'profile_id' => Profile::first()->id,
 			'category_id' => Category::inRandomOrder()->first()->id,

@@ -14,7 +14,17 @@ class Category extends Model
 	public function comments()
 	{
 		// с кем отношения и через кого
-		return $this->hasManyThrough(Comment::class, Post::class);
+		// у комментариев есть fk на пост
+		// у поста есть fk на категорию
+		// эти 2 fk надо задать в firstKey и secondKey
+
+		return $this->hasManyThrough(Comment::class,
+			Post::class,
+			'category_id',
+			'commentable_id',
+			'id',
+			'id'
+		);
 	}
 
 	public function comment()

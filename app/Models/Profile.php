@@ -9,6 +9,10 @@ class Profile extends Model
 {
     use HasFactory;
 
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 
 	public function posts ()
 	{
@@ -18,6 +22,16 @@ class Profile extends Model
 	public function profileable()
 	{
 		return $this->morphTo();
+	}
+
+	public function likedPosts()
+	{
+		return $this->morphedByMany(Post::class, 'likeable', 'likeable');
+	}
+
+	public function likedComments()
+	{
+
 	}
 
 }

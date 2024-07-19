@@ -30,6 +30,21 @@ class GoCommand extends Command
      */
     public function handle()
     {
+		/*
+		 * сущности
+		 * */
+		/*
+		$user = User::find(1);
+		$profile = Profile::first();
+		$post = Post::find(1);
+		$comment = Comment::find(1);
+		$category = Category::find(1);
+		$tag = Tag::find(1);
+		$role = Role::find(1);
+		*/
+
+
+
 		// посты профиля - получим коллекцию постов
 		// $profile = Profile::first();
 		// dd($profile->posts);
@@ -55,8 +70,49 @@ class GoCommand extends Command
 		// dd($category->comment);
 
 		// идем в коммент и говорим ему - дай свою категорию
-		$comment = Comment::first();
-		dd($comment->category);
+
+
+		// morphOneMany Post
+		// $post = Post::find(2);
+		// dd($post->comments);
+
+		// comment
+		// $comment = Comment::first();
+		// dd($comment->commentable);
+
+		// лайки постов
+		// $profile = Profile::first();
+		// dd($profile->likedPosts);
+
+		// кто лайкнул пост
+		// $post = Post::first();
+		// dd($post->likedByProfiles);
+
+		// лайкнуть кодом - не работает
+		// $profile = Profile::first();
+		// $profile->likedPosts()->attach([5]);
+
+		// найти категорию 5
+		$category = Category::find(5);
+		dd($category->comments);
+
+
+
+
+
+		// !!! сиды сделать, чтобы генерили комменты
+
+
+
+		//dd($comment->category);
+
+		//$role = Role::find(2);
+
+		// many-to-many-through
+		// dd($profile->comments);
+
+
+
 
 
 		dd(11111);

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\Post;
+use App\Models\Profile;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
@@ -19,8 +20,9 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-			'content' => fake()->words(7, 20),
-			'author' => 1,
+			'content' => fake()->sentence(10),
+			'profile_id' => Profile::first()->id,
+			'post_id' => Post::inRandomOrder()->first()->id
         ];
     }
 }

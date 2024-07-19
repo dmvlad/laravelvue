@@ -9,9 +9,14 @@ class Comment extends Model
 {
     use HasFactory;
 
-	public function posts ()
+	public function post()
 	{
 		return $this->belongsTo(Post::class);
+	}
+
+	public function profile()
+	{
+		return $this->post->profile();
 	}
 
 	public function category()
